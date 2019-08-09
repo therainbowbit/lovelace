@@ -24,13 +24,11 @@ def tcp_sniff():
 	origin_addr = origin_addr[0]
 	
 
-	#Get the packet data from recvfrom's first tuple member
 	packet_data = tcp_packet[0]
 
-	#Get IP header from first twenty characters
 	ip_header = packet_data[:20] 
 
-	#Now unpack the header data 
+	#unpack the header data 
 	data = struct.unpack('!BBHHHBBH4s4s', ip_header)
 	
 	print data[0] >> 4 
